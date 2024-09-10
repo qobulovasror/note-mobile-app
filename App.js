@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import MainScreen from './MainScreen';
+import {createNoteTable} from "./services/noteDB";
+import {createTodoTable} from "./services/todoDB";
+import { useEffect, useState,  } from 'react';
 
 export default function App() {
+  const [initialized, setInitialized] = useState(false);
+  useEffect(() => {
+    if (!initialized) {
+      createNoteTable()
+      createTodoTable()
+      setInitialized(true);
+    }
+  }, [initialized]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MainScreen/>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -15,18 +15,18 @@ function MainScreen() {
   const [todos, setTodos] = useState([])
 
   const fetchNotes = () => {
-    try {
-      getNotes().then(data=>{
-        console.log(data);
-        // setNotes(data);
-      })
-    }catch(error){
-      console.log(error);
-      alert("Xatolik!")
-    }
+    // try {
+    //   getNotes().then(data=>{
+    //     console.log(data);
+    //     // setNotes(data);
+    //   })
+    // }catch(error){
+    //   console.log(error);
+    //   alert("Xatolik!")
+    // }
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     fetchNotes()
   }, [])
   return (
@@ -37,7 +37,7 @@ function MainScreen() {
         tabBarInactiveTintColor: '#fff',
         tabBarStyle: { backgroundColor: '#272730' },
         headerStyle: { backgroundColor: "#272730" },
-        headerTitleStyle: {color: "#fff"}
+        headerTitleStyle: { color: "#fff" }
       }}
     >
       <Tab.Screen

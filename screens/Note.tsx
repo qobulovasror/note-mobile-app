@@ -13,7 +13,7 @@ import mainStyle from '../assets/styles/mainStyle';
 import { useState } from 'react';
 // import {deleteNote} from "../services/noteDB"
 
-const Note = ({}) => {
+const Note = ({ }) => {
   const [visible, setVisible] = useState(false);
 
   const openAddWin = () => {
@@ -24,7 +24,6 @@ const Note = ({}) => {
     <SafeAreaView style={mainStyle.container}>
       <StatusBar
         backgroundColor="#272730"
-        barStyle={'light-content'}
         style="light"
       />
       <AddAndUpdateData mode="add" visible={visible} setVisible={setVisible} />
@@ -34,9 +33,9 @@ const Note = ({}) => {
         renderItem={({ item }) => (
           <TodoItem
             item={item}
-            // fetchNotes={fetchNotes}
-            // setTargetNote={setTargetNote}
-            // navigation={navigation}
+          // fetchNotes={fetchNotes}
+          // setTargetNote={setTargetNote}
+          // navigation={navigation}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -48,26 +47,27 @@ const Note = ({}) => {
   );
 };
 
-const TodoItem = ({ item }) => {
+const TodoItem = ({ item }: any) => {
   const deleteItem = (id) => {
-    Alert.alert(
-      'Confirm Action',
-      'Are you sure you want to delete this?',
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'OK',
-          onPress: () => {
-            deleteNote(id);
-            fetchNotes();
-          },
-        },
-      ],
-      { cancelable: true }
-    );
+    console.log(id);
+    // Alert.alert(
+    //   'Confirm Action',
+    //   'Are you sure you want to delete this?',
+    //   [
+    //     {
+    //       text: 'Cancel',
+    //       style: 'cancel',
+    //     },
+    //     {
+    //       text: 'OK',
+    //       onPress: () => {
+    //         deleteNote(id);
+    //         fetchNotes();
+    //       },
+    //     },
+    //   ],
+    //   { cancelable: true }
+    // );
   };
 
   const openTargetNote = (item) => {
@@ -131,19 +131,19 @@ const AddAndUpdateData = (props) => {
 
   return (
     <View>
-      <Dialog.Container visible={visible} contentStyle={{width: "95%", marginHorizontal: 20, height: 250}}>
-        <Dialog.Title style={{fontSize: 20}}>
+      <Dialog.Container visible={visible} contentStyle={{ width: "95%", marginHorizontal: 20, height: 250 }}>
+        <Dialog.Title style={{ fontSize: 20 }}>
           {
-            mode === 'add'?
-            "Add new note":
-            "Edit note"
+            mode === 'add' ?
+              "Add new note" :
+              "Edit note"
           }
         </Dialog.Title>
         <Dialog.Input
           inputMode='text'
           multiline={true}
           placeholder="Type here"
-          style={{fontSize: 22, marginVertical: 15}}
+          style={{ fontSize: 22, marginVertical: 15 }}
           onChangeText={(text) => setInputValue(text)}
           value={inputValue}
         />

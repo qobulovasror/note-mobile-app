@@ -5,14 +5,14 @@ import {createTodoTable} from "./services/todoDB";
 import { useEffect, useState,  } from 'react';
 
 export default function App() {
-  const [initialized, setInitialized] = useState(false);
-  useEffect(() => {
-    if (!initialized) {
-      createNoteTable()
-      createTodoTable()
-      setInitialized(true);
-    }
-  }, [initialized]);
+  // const [initialized, setInitialized] = useState(false);
+  // useEffect(() => {
+  //   if (!initialized) {
+  //     createNoteTable()
+  //     createTodoTable()
+  //     setInitialized(true);
+  //   }
+  // }, [initialized]);
 
   return (
     <NavigationContainer>

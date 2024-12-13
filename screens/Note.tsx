@@ -11,9 +11,10 @@ import { StatusBar } from 'expo-status-bar';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import mainStyle from '../assets/styles/mainStyle';
 import { useState } from 'react';
+import { addNote, getNotes } from '../services/db';
 // import {deleteNote} from "../services/noteDB"
 
-const Note = ({ }) => {
+const Note = ({ notes, navigation }: { notes: any; navigation: any }) => {
   const [visible, setVisible] = useState(false);
 
   const openAddWin = () => {
@@ -28,7 +29,7 @@ const Note = ({ }) => {
       />
       <AddAndUpdateData mode="add" visible={visible} setVisible={setVisible} />
       <FlatList
-        data={[]}
+        data={notes}
         style={{ padding: 2 }}
         renderItem={({ item }) => (
           <TodoItem
@@ -125,8 +126,27 @@ const AddAndUpdateData = (props) => {
     setVisible(false);
   };
 
-  const handleOK = () => {
+  const handleOK = async() => {
     setVisible(false);
+    if (mode === 'add') {
+      try {
+        await addNote({
+          title: "title", 
+          content: "content", 
+          createdAt: new Date().toISOString()
+        }).then(() => {
+          console.log('Note added successfully');
+          getNotes().then((notes) => {
+            console.log(notes);
+            
+          })
+        })
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
   };
 
   return (

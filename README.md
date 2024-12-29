@@ -1,6 +1,15 @@
 # Notes & To-Do App  
 
-A simple and efficient Notes and To-Do application built using **React Native** and **Expo**. This app allows users to create, manage, and organize their notes and tasks conveniently on their mobile devices.  
+A simple and efficient Notes and To-Do application built using **React Native** and **Expo**. This app allows users to create, manage, and organize their notes and tasks conveniently on their mobile devices. 
+
+<div style="display: flex; flex-direction: row;">
+   <img src="https://github.com/user-attachments/assets/885ed17d-eef9-44d6-ba0c-da03d3b4b72a" width="200px"/>
+   <img src="https://github.com/user-attachments/assets/e8284722-84de-4531-9551-41c806425582" width="200px"/>
+   <img src="https://github.com/user-attachments/assets/c50a7a05-1efc-4cad-bfa1-7950ece4e195" width="200px"/>
+   <img src="https://github.com/user-attachments/assets/d3abcd3f-23ed-4665-bdee-112aa1f73055" width="200px"/>
+
+</div>
+ 
 
 ## Features  
 

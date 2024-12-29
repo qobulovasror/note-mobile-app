@@ -2,10 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useEffect, useState } from 'react';
-// import { getNotes } from "./services/noteDB"
-// import {getTodos} from "./services/todoDB"
 import { Note as INote, Todo as ITodo, getNotes, getTodos } from './services/db';
-
 
 import Note from "./screens/Note";
 import Todo from "./screens/Todo";
